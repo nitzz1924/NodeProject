@@ -15,8 +15,11 @@ const server = http.createServer((req, response) => {
     fs.readFile(`${__dirname}/userapi.json`, "UTF-8", (err, data) => {
       if (data == null) {
         console.log(chalk.red.greenBright(err));
-      } else {      
-        response.end(data);
+      } else {
+        const objdata = JSON.parse(data);
+        console.log(objdata.users[0].maidenName);
+        response.end
+        (objdata.users[0].maidenName);
       }
     });
   } else {
